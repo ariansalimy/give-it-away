@@ -7,10 +7,10 @@ import React from 'react';
 
 export async function Upload() {
 
-  
+  var currentFile = '';
     async function upload(data: FormData) {
       'use server'
-  
+      
       const file: File | null = data.get('file') as unknown as File
       if (!file) {
         throw new Error('No file uploaded')
@@ -24,12 +24,13 @@ export async function Upload() {
       const path = join('/', 'tmp', file.name)
       await writeFile(path, buffer)
       console.log(`open ${path} to see the uploaded file`)
+      
   
-      return { success: true }
+      return { success: true, currentFile: file.name}
     }
    
 
    
     
-    return ( <><form action={upload}> <input type="file" name="file"/><Button variant="contained" type="submit" value="upload">Upload</Button></form></>);
+    return ( <><form action={upload}> <input type="file" name="file"/><Button variant="contained" type="submit" value="uploaded">Upload</Button></form>       <div className = "text-lg">File Uploaded: {} </div> </>);
 }

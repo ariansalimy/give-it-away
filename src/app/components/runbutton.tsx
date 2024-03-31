@@ -6,7 +6,7 @@ import RunRandom from './run';
 export default function RunRandomButton () {
     return (
         <>
-    <Button variant="contained" type="submit" onClick={() => RunRandom()} >Read files</Button>
+    <Button variant="contained" onClick={() => RunRandom()} >Read files</Button>
     </>
     )
 }
