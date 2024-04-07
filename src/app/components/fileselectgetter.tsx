@@ -26,5 +26,5 @@ value={file}
 
 console.log(selectItems)
 
-return selectItems;
+return fileArray;
 }

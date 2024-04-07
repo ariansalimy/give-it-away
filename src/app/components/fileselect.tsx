@@ -4,13 +4,13 @@ import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select, { SelectChangeEvent } from '@mui/material/Select';
+import { FileSelectGetter } from './fileselectgetter';
 
-export default function FileSelector({
-    children,
-  }: {
-    children: React.ReactNode;
-  })  {
+export default function FileSelector() {
+
+
   const [file, setFile] = React.useState('');
+  const [fileSelect, changeFileSelect] = React.useState<React.ReactNode[]>([]);
   console.log(file,setFile)
 
   const handleChange = (event: SelectChangeEvent) => {
@@ -19,6 +19,18 @@ export default function FileSelector({
   };
   console.log("Selector")
 
+  
+  React.useEffect( () => {
+    const test = async () => {
+      const fileArray = await FileSelectGetter();
+      const selectItems = fileArray.map(file => { return (<MenuItem 
+        value={file}
+        >
+        {file}</MenuItem>) });
+      changeFileSelect(selectItems)
+    }
+  test()
+  })
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 80 }}>
@@ -34,7 +46,10 @@ export default function FileSelector({
           <MenuItem value="">
             <em>None</em>
           </MenuItem>
-         <div>{children}</div>
+          
+          {fileSelect}
+          
+
         </Select>
       </FormControl>
     </div>

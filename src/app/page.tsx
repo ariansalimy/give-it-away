@@ -40,7 +40,7 @@ export default function Home() {
 </Suspense>
 
 <FileSelector>
-  <FileSelectGetter></FileSelectGetter>
+
 </FileSelector>
 
  
