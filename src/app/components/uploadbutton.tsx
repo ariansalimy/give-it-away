@@ -5,7 +5,8 @@ import { Upload } from './upload';
 
 
 export default function UploadButton() {
+    
     return (
-    <><Button variant="contained" type="submit" value="upload" onClick={() => Upload()}>Upload</Button></>
+        <><form action={Upload}> <input type="file" name="file"/><Button variant="contained" type="submit" value="uploaded">Upload</Button></form>  </>
     )
 }

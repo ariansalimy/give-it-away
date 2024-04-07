@@ -3,9 +3,16 @@ import ButtonUsage from "./components/testbutton";
 import Header from "./components/header"
 import {Upload} from "./components/upload"
 import RunRandom from './components/run';
-import RunRandomButton from "./components/runbutton"
-import FileName from "./components/filename";
+
+
 import UploadButton from './components/uploadbutton'
+import Example from "./components/example";
+import { FileName } from "./components/filename";
+import { Suspense } from "react";
+import Loading from "./loading";
+import { FileNameGetter } from "./components/filenamegetter";
+import FileSelector from "./components/fileselect";
+import { FileSelectGetter } from "./components/fileselectgetter";
 export default function Home() {
 
   return (
@@ -16,16 +23,29 @@ export default function Home() {
       <div className = "grid grid-rows-2 justify-center text-center gap-2 mb-15">
         <div className = "text-xl">Upload</div>
 
-     <Upload></Upload>
+     <UploadButton></UploadButton>
+   
 
  
       </div>
       
-      <div className = "grid grid-rows-2 justify-center text-center gap-5 mb-15">
+      <div className = "grid  justify-center text-center">
    
-      <FileName></FileName>
-      <RunRandomButton></RunRandomButton>
+<Suspense fallback={<Loading/>}>
+  <>
+<Example>
+  <FileNameGetter></FileNameGetter>
+</Example>
+</>
+</Suspense>
+
+<FileSelector>
+  <FileSelectGetter></FileSelectGetter>
+</FileSelector>
+
+ 
       </div>
+      
      
      
  
