@@ -18,13 +18,13 @@ export async function FileSelectGetter() {
 .filter(item => !item.isDirectory() && item.name != 'undefined')
 .map(item => item.name)
 
-console.log(fileArray);
+
 const selectItems = fileArray.map(file => { return (<MenuItem 
 value={file}
 >
 {file}</MenuItem>) });
 
-console.log(selectItems)
+
 
 return fileArray;
 }

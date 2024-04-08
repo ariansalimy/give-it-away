@@ -31,17 +31,15 @@ export default function Home() {
       
       <div className = "grid  justify-center text-center">
    
-<Suspense fallback={<Loading/>}>
-  <>
-<Example>
-  <FileNameGetter></FileNameGetter>
-</Example>
-</>
-</Suspense>
 
-<FileSelector>
+
+  <FileSelector>
 
 </FileSelector>
+
+
+
+
 
  
       </div>

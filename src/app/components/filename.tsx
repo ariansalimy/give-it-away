@@ -19,7 +19,7 @@ export async function FileName() {
 .filter(item => !item.isDirectory() && item.name != 'undefined')
 .map(item => item.name)
 
-console.log(fileArray);
+
 const listItems = fileArray.map(file => { return (<ListItem disablePadding><ListItemButton><ListItemText>{file}</ListItemText></ListItemButton></ListItem>) });
 
 return listItems;

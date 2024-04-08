@@ -11,26 +11,26 @@ export default function FileSelector() {
 
   const [file, setFile] = React.useState('');
   const [fileSelect, changeFileSelect] = React.useState<React.ReactNode[]>([]);
-  console.log(file,setFile)
+
 
   const handleChange = (event: SelectChangeEvent) => {
-    console.log("Handle change")
+
     setFile(event.target.value);
   };
-  console.log("Selector")
-
-  
   React.useEffect( () => {
-    const test = async () => {
-      const fileArray = await FileSelectGetter();
-      const selectItems = fileArray.map(file => { return (<MenuItem 
-        value={file}
-        >
-        {file}</MenuItem>) });
-      changeFileSelect(selectItems)
-    }
+    
   test()
-  })
+  },[])
+  const test = async () => {
+    const fileArray = await FileSelectGetter();
+    const selectItems = fileArray.map(file => { return (<MenuItem 
+      key={file} value={file}
+      >
+      {file}</MenuItem>) });
+    changeFileSelect(selectItems)
+  }
+  
+
   return (
     <div>
       <FormControl sx={{ m: 1, minWidth: 80 }}>
