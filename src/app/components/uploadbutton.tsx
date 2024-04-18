@@ -1,6 +1,6 @@
 'use client'
 import React from 'react';
-import Button from '@mui/material/Button';
+import { Button } from "@/components/ui/button"
 import { Upload } from './upload';
 
 import { useState } from 'react'
@@ -35,7 +35,7 @@ export default function UploadButton() {
         name="file"
         onChange={(e) => setFile(e.target.files?.[0])}
       />
-      <Button variant="contained" type="submit" value="upload">Upload</Button>
+      <Button type="submit" value="upload">Upload</Button>
     </form>
   )
 }

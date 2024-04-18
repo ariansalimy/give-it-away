@@ -1,7 +1,7 @@
 'use server'
 import React from "react";
 import RunRandom from "./run";
-import { readFile,readdir, readdirSync, stat } from 'fs';
+import { readFile,readFileSync,readdir, readdirSync, stat } from 'fs';
 import path from "path";
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
@@ -27,4 +27,14 @@ value={file}
 
 
 return fileArray;
+}
+
+export async function FileGetter(f :string) {
+    console.log('filegetter ran',f)
+    const dir = (process.cwd()+'/public'+ '/storage/')
+    
+    const data = readFileSync((process.cwd()+'/public'+ '/storage/'+f),'utf8')
+    return data;
+    
+    
 }

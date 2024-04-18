@@ -3,8 +3,21 @@ import * as React from 'react';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 import { FileSelectGetter } from './fileselectgetter';
+import { Button } from "@/components/ui/button"
+import Randomizer  from './randomizer';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+
+
 
 export default function FileSelector() {
 
@@ -13,9 +26,12 @@ export default function FileSelector() {
   const [fileSelect, changeFileSelect] = React.useState<React.ReactNode[]>([]);
 
 
-  const handleChange = (event: SelectChangeEvent) => {
+  const handleChange = (event: any) => {
+      
+      setFile(event.target.value);
 
-    setFile(event.target.value);
+
+    
   };
   React.useEffect( () => {
     
@@ -23,35 +39,41 @@ export default function FileSelector() {
   },[])
   const test = async () => {
     const fileArray = await FileSelectGetter();
-    const selectItems = fileArray.map(file => { return (<MenuItem 
+    const selectItems = fileArray.map(file => { return (<SelectItem 
       key={file} value={file}
       >
-      {file}</MenuItem>) });
+      {file}</SelectItem>) });
     changeFileSelect(selectItems)
   }
   
 
   return (
+    <>
     <div>
-      <FormControl sx={{ m: 1, minWidth: 80 }}>
-        <InputLabel id="demo-simple-select-autowidth-label">Files</InputLabel>
-        <Select
-          labelId="demo-simple-select-autowidth-label"
-          id="demo-simple-select-autowidth"
-          value={file}
-          onChange={handleChange}
-          autoWidth
-          label="Files"
-        >
-          <MenuItem value="">
+        <Select onValueChange={setFile}>
+          <SelectTrigger className="w-[180px]">
+          <SelectValue placeholder="Select a file"/>
+          </SelectTrigger>
+          
+          <SelectContent>
+          <SelectGroup>
+            <SelectLabel>Files</SelectLabel>
+          </SelectGroup>
+       
+          <SelectItem value="null">
             <em>None</em>
-          </MenuItem>
+          </SelectItem>
           
           {fileSelect}
-          
+          </SelectContent>
 
         </Select>
-      </FormControl>
+
+      </div>
+
+    <div>
+      <Button onClick={() => Randomizer(file)}>RUN</Button>
     </div>
+    </>
   );
 }
