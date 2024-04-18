@@ -10,7 +10,7 @@ import Select, { SelectChangeEvent } from '@mui/material/Select';
 
 export async function FileSelectGetter() {
 
-
+    console.log("Getter ran");
    
     const dir = (process.cwd()+'/public'+ '/storage');
    
@@ -18,11 +18,6 @@ export async function FileSelectGetter() {
 .filter(item => !item.isDirectory() && item.name != 'undefined')
 .map(item => item.name)
 
-
-const selectItems = fileArray.map(file => { return (<MenuItem 
-value={file}
->
-{file}</MenuItem>) });
 
 
 

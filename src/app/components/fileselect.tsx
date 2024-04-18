@@ -28,29 +28,30 @@ export default function FileSelector() {
 
   const handleChange = (event: any) => {
       
-      setFile(event.target.value);
+    const test = async () => {
+      const fileArray = await FileSelectGetter();
+      const selectItems = fileArray.map(file => { return (<SelectItem 
+        key={file} value={file}
+        >
+        {file}</SelectItem>) });
+      changeFileSelect(selectItems)
+    }
+  test()  
 
 
     
   };
-  React.useEffect( () => {
-    
-  test()
-  },[])
-  const test = async () => {
-    const fileArray = await FileSelectGetter();
-    const selectItems = fileArray.map(file => { return (<SelectItem 
-      key={file} value={file}
-      >
-      {file}</SelectItem>) });
-    changeFileSelect(selectItems)
+
+  const handleFileChange = (event:any) => {
+    setFile(event);
   }
+ 
   
 
   return (
     <>
     <div>
-        <Select onValueChange={setFile}>
+        <Select onOpenChange={handleChange} onValueChange={handleFileChange}>
           <SelectTrigger className="w-[180px]">
           <SelectValue placeholder="Select a file"/>
           </SelectTrigger>

@@ -12,7 +12,7 @@ import { Suspense } from "react";
 import Loading from "./loading";
 import { FileNameGetter } from "./components/filenamegetter";
 import FileSelector from "./components/fileselect";
-import { FileSelectGetter } from "./components/fileselectgetter";
+
 export default function Home() {
 
   return (
