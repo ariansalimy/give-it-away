@@ -24,7 +24,9 @@ export default function FileSelector() {
 
   const [file, setFile] = React.useState('');
   const [fileSelect, changeFileSelect] = React.useState<React.ReactNode[]>([]);
-
+  const [winText,setWinText] = React.useState('');
+  
+ 
 
   const handleChange = (event: any) => {
       
@@ -44,6 +46,14 @@ export default function FileSelector() {
 
   const handleFileChange = (event:any) => {
     setFile(event);
+  }
+
+  function runGiveaway(file:string,count:number) {
+    Randomizer(file,count).then(st => {
+      console.log("Winner (from fileselect)",st)
+      setWinText("Winner(s): "+ st.toString());
+    });
+    
   }
  
   
@@ -73,8 +83,11 @@ export default function FileSelector() {
       </div>
 
     <div>
-      <Button onClick={() => Randomizer(file)}>RUN</Button>
+      <Button onClick={() => runGiveaway(file,1)}>RUN</Button>
     </div>
+   
+    <div className = "text-xl">{winText}</div>
+
     </>
   );
 }
