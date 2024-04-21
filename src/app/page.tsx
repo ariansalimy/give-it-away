@@ -44,10 +44,16 @@ export default function Home() {
  
 
       
+
+
+  <footer className="">Developed by <a className="hover:underline" href="https://basedari.com">Arian Salimy</a></footer>
+
+
      
      
  
 
     </main>
+  
   );
 }
