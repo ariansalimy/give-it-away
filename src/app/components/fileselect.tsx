@@ -6,6 +6,8 @@ import FormControl from '@mui/material/FormControl';
 
 import { FileSelectGetter } from './fileselectgetter';
 import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import { Label } from "@/components/ui/label"
 import Randomizer  from './randomizer';
 import {
   Select,
@@ -25,6 +27,7 @@ export default function FileSelector() {
   const [file, setFile] = React.useState('');
   const [fileSelect, changeFileSelect] = React.useState<React.ReactNode[]>([]);
   const [winText,setWinText] = React.useState('');
+  const [count,setCount] = React.useState(Number);
   
  
 
@@ -43,6 +46,8 @@ export default function FileSelector() {
 
     
   };
+
+
 
   const handleFileChange = (event:any) => {
     setFile(event);
@@ -81,9 +86,13 @@ export default function FileSelector() {
         </Select>
 
       </div>
+      <div className="grid max-w-sm place-items-center  gap-1.5">
+      <Label htmlFor="count">Number of Winners</Label>
+      <Input onChangeCapture={e => setCount(parseInt(e.currentTarget.value))} type="count" id="count" placeholder="1" />
+    </div>
 
     <div>
-      <Button onClick={() => runGiveaway(file,1)}>RUN</Button>
+      <Button onClick={() => runGiveaway(file,count)}>RUN</Button>
     </div>
    
     <div className = "text-xl">{winText}</div>

@@ -29,7 +29,7 @@ export default function Home() {
  
       </div>
       
-      <div className = "grid  grid-rows-3 justify-center text-center">
+      <div className = "grid  justify-center text-center">
    
 
 
