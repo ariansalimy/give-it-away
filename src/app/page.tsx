@@ -6,10 +6,10 @@ import RunRandom from './components/run';
 
 import UploadButton from './components/uploadbutton'
 import Example from "./components/example";
-import { FileName } from "./components/filename";
+
 import { Suspense } from "react";
 import Loading from "./loading";
-import { FileNameGetter } from "./components/filenamegetter";
+
 import FileSelector from "./components/fileselect";
 
 export default function Home() {
