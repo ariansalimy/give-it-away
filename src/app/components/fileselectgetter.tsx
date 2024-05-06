@@ -2,11 +2,7 @@
 import React from "react";
 import RunRandom from "./run";
 import { readFile,readFileSync,readdir, readdirSync, stat } from 'fs';
-import path from "path";
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select, { SelectChangeEvent } from '@mui/material/Select';
+
 
 export async function FileSelectGetter() {
 

@@ -35,7 +35,7 @@ export default function UploadButton() {
         name="file"
         onChange={(e) => setFile(e.target.files?.[0])}
       />
-      <Button type="submit" value="upload">Upload</Button>
+      <Button variant="outline" type="submit" value="upload">Upload</Button>
     </form>
   )
 }

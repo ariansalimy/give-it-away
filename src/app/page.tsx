@@ -1,5 +1,4 @@
 import Image from "next/image";
-import ButtonUsage from "./components/testbutton";
 import Header from "./components/header"
 import {Upload} from "./components/upload"
 import RunRandom from './components/run';
@@ -21,7 +20,7 @@ export default function Home() {
       
 
       <div className = "grid grid-rows-2 justify-center text-center gap-2 mb-15">
-        <div className = "text-xl">Upload</div>
+        <div className = " font-mono text-xl">Upload</div>
 
      <UploadButton></UploadButton>
    
@@ -46,7 +45,7 @@ export default function Home() {
       
 
 
-  <footer className="">Developed by <a className="hover:underline" href="https://basedari.com">Arian Salimy</a></footer>
+  <footer className="font-mono">Developed by <a className="hover:underline font-mono" href="https://basedari.com">Arian Salimy</a></footer>
 
 
      
