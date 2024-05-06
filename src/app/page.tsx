@@ -5,7 +5,6 @@ import RunRandom from './components/run';
 
 
 import UploadButton from './components/uploadbutton'
-import Example from "./components/example";
 
 import { Suspense } from "react";
 import Loading from "./loading";
