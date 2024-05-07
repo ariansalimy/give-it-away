@@ -16,7 +16,7 @@ export async function POST(request:NextRequest) {
     const rootDir = process.cwd();
     console.log(rootDir);
 
-    const path = join('./public', 'storage', file.name);
+    const path = join('/public', 'storage', file.name);
     await writeFile(path,buffer);
     console.log(`open ${path} to see the uploaded file`);
 
