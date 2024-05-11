@@ -9,10 +9,13 @@ export async function FileSelectGetter() {
     console.log("Getter ran");
    
     const dir = ('/tmp/');
+    
+    
    
     const fileArray = readdirSync(dir, {withFileTypes: true})
 .filter(item => !item.isDirectory() && item.name != 'undefined')
 .map(item => item.name)
+    console.log('file array',fileArray)
 
 
 
