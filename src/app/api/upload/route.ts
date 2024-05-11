@@ -13,12 +13,10 @@ export async function POST(request:NextRequest) {
     const bytes = await file.arrayBuffer()
     const buffer = Buffer.from(bytes);
 
-    const rootDir = process.cwd();
-    console.log(rootDir);
+    
 
 
-
-    const path = join('/tmp/',file.name);
+    const path = join(process.cwd(),file.name);
     console.log('path is',path)
     await writeFile(path,buffer);
     console.log(`open ${path} to see the uploaded file`);
