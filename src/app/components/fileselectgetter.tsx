@@ -11,6 +11,7 @@ export async function FileSelectGetter() {
     const dir = ('/tmp/');
     
     
+    console.log('read dir',readdirSync('/tmp'))
    
     const fileArray = readdirSync('/tmp/', {withFileTypes: true})
 .filter(item => !item.isDirectory() && item.name != 'undefined')
