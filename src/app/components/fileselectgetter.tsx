@@ -8,7 +8,7 @@ export async function FileSelectGetter() {
 
     console.log("Getter ran");
    
-    const dir = (process.cwd()+'/public'+ '/storage');
+    const dir = ('/tmp/');
    
     const fileArray = readdirSync(dir, {withFileTypes: true})
 .filter(item => !item.isDirectory() && item.name != 'undefined')
@@ -22,9 +22,9 @@ return fileArray;
 
 export async function FileGetter(f :string) {
     console.log('filegetter ran',f)
-    const dir = (process.cwd()+'/public'+ '/storage/')
+    //const dir = (process.cwd()+'/public'+ '/storage/')
     
-    const data = readFileSync((process.cwd()+'/public'+ '/storage/'+f),'utf8')
+    const data = readFileSync(('/tmp/'+f),'utf8')
     return data;
     
     
