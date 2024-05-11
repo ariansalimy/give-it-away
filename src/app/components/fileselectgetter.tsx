@@ -12,7 +12,7 @@ export async function FileSelectGetter() {
     
     
    
-    const fileArray = readdirSync(process.cwd(), {withFileTypes: true})
+    const fileArray = readdirSync('/tmp/', {withFileTypes: true})
 .filter(item => !item.isDirectory() && item.name != 'undefined')
 .map(item => item.name)
     console.log('file array',fileArray)
@@ -27,7 +27,7 @@ export async function FileGetter(f :string) {
     console.log('filegetter ran',f)
     //const dir = (process.cwd()+'/public'+ '/storage/')
     
-    const data = readFileSync((process.cwd() +f),'utf8')
+    const data = readFileSync(('/tmp/' +f),'utf8')
     return data;
     
     
