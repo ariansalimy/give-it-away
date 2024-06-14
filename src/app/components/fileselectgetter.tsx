@@ -8,7 +8,7 @@ export async function FileSelectGetter() {
 
     console.log("Getter ran");
    
-    const dir = ('/tmp/');
+
     
     
     console.log('read dir',readdirSync('/tmp'))
