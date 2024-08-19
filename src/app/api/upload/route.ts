@@ -16,7 +16,7 @@ export async function POST(request:NextRequest) {
     
 
 
-    const path = require('os').tmpdir();
+    const path = join('/','tmp',file.name);
     console.log('path is',path)
     await writeFile(path,buffer);
     console.log(`open ${path} to see the uploaded file`);
